@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Demo Page</title>
-	</head>
-	<body>
-		<h1>Demo Page</h1>
-		<div>
-			<form action="{{url_for('upload_done')}}" method="get">
-				<div>
-					<input type="text" name="url" placeholder="Input URL" id="url">
-					<button type="submit">Send</button>
-				</div>
-				<div>
-					<table>
-						<th>{{input}}</th>
-						<th>{{output}}</th>
-					</table>
-				</div>
-			</form>
-		</div>
-		<div>
-			<form action="{{url_for('qa_done')}}" method="get">
-				<div>
-					<input type="text" name="question" placeholder="Input Question" id="question">
-					<button type="submit">ASK</button>
-				</div>
-				<div>
-					<table>
-						<th>{{question}}</th>
-						<th>{{answer}}</th>
-					</table>
-				</div>
-			</form>
-		</div>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Demo Page</title>
+    </head>
+    <body>
+        <h1 id="title">Youtube Caption Summarizer</h1>
+        <div>
+            <form action="{{url_for('upload_done')}}" method="get">
+                <div id="questionInputWrapper">
+                    <input id="urlInput" type="text" name="url" placeholder="Input URL" id="url" />
+                    <button type="submit">Send</button>
+                </div>
+                <div id="titleWrapper">
+                    <h3>Caption</h3>
+                    <h3>Summary</h3>
+                </div>
+                <div id="summaryWrapper">
+                    <textarea id="subtitle">{{input}}</textarea>
+                    <textarea id="summary">{{output}}</textarea>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form action="{{url_for('qa_done')}}" method="get">
+                <div id="questionInputWrapper">
+                    <input id="questionInput" type="text" name="question" placeholder="Input Question" id="question" />
+                    <button type="submit">ASK</button>
+                </div>
+                <div id="titleWrapper">
+                    <h3>Caption</h3>
+                    <h3>Summary</h3>
+                </div>
+                <div id="summaryWrapper">
+                    <textarea id="question">{{question}}</textarea>
+                    <textarea id="answer">{{answer}}</textarea>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
