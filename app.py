@@ -26,7 +26,7 @@ def qa_done():
     question = request.args.get("question")
     M.setQuestion(question)
     answer = M.QA()
-    return render_template('base.html', question=question, answer=answer)
+    return render_template('base.html', question=question, answer=answer, input=M.input, output=M.output)
     # return render_template('base.html', output=output)
 
 if __name__=='__main__':
